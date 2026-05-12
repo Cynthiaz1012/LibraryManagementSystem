@@ -12,6 +12,12 @@ public abstract class Item {
     private String title;
     private Status status;
 
+    public Item(String id, String title, Status status) {
+        this.id = id;
+        this.title = title;
+        this.status = status;
+    }
+
     /**
      * Checks whether item is available.
      * @return true if available
