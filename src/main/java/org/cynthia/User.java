@@ -19,4 +19,18 @@ public abstract class User {
         this.name = name;
         this.borrowedItems = borrowedItems;
     }
+
+    /**
+     * Returns the maximum number of items this user can borrow.
+     * @return Maximum borrowing limit.
+     */
+    public abstract int getBorrowingLimit();
+
+    /**
+     * Checks if the user can borrow more items.
+     * @return True if current borrowed count < limit, else false.
+     */
+    public boolean canBorrow() {
+        return borrowedItems.size() < getBorrowingLimit();
+    }
 }
