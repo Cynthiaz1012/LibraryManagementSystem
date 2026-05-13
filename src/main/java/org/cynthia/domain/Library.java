@@ -36,4 +36,13 @@ public class Library {
         }
         return null;
     }
+
+    public Item findItemById(int id) {
+        for (Item item : items) {
+            if (item.getId() == id) {
+                return item;
+            }
+        }
+        return null;
+    }
 }
