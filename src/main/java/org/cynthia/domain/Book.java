@@ -12,7 +12,7 @@ public class Book extends Item {
     private String author;
     private String genre;
 
-    public Book(String id, String title, String ISBN, String author, String genre) {
+    public Book(int id, String title, String ISBN, String author, String genre) {
         super(id, title);
         this.isbn = isbn;
         this.author = author;

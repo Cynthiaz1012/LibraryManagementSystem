@@ -8,11 +8,11 @@ import lombok.ToString;
 @Setter
 @ToString
 public abstract class Item {
-    protected String id;
+    protected int id;
     protected String title;
     protected ItemStatus status;
 
-    public Item(String id, String title) {
+    public Item(int id, String title) {
         this.id = id;
         this.title = title;
         this.status = ItemStatus.IN_STORE;
