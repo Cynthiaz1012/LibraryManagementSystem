@@ -18,4 +18,12 @@ public class Teacher extends User {
     public int getBorrowingLimit() {
         return 10;
     }
+
+    @Override
+    public void borrowItem(Item item) {
+        if (borrowedItems.size() >= getBorrowingLimit()) {
+            throw new IllegalArgumentException("Teacher borrow limit reached.");
+        }
+        borrowedItems.add(item);
+    }
 }
