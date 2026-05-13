@@ -73,4 +73,29 @@ public class Library {
         }
         user.returnItem(item);
     }
+
+    public List<Item> recursiveSearchByTitle(String keyword) {
+        return recursiveSearch(keyword.toLowerCase(), 0, new ArrayList<>());
+    }
+
+    private List<Item> recursiveSearch(String keyword, int index, List<Item> result) {
+        if (index >= items.size()) {
+            return result;
+        }
+
+        Item current = items.get(index);
+        if (current.getTitle().toLowerCase().contains(keyword)) {
+            boolean exists = false;
+            for (Item item : result) {
+                if (item.getTitle().equalsIgnoreCase(current.getTitle())) {
+                    exists = true;
+                    break;
+                }
+            }
+            if (!exists) {
+                result.add(current);
+            }
+        }
+        return recursiveSearch(keyword, index + 1, result);
+    }
 }
