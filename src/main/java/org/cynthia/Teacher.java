@@ -13,4 +13,9 @@ public class Teacher extends User {
     public Teacher(String id, String name, List<Item> borrowedItems) {
         super(id, name, borrowedItems);
     }
+
+    @Override
+    public int getBorrowingLimit() {
+        return 10;
+    }
 }
