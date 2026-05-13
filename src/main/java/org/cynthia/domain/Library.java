@@ -1,5 +1,8 @@
 package org.cynthia.domain;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -110,5 +113,14 @@ public class Library {
                 .values()
                 .stream()
                 .toList();
+    }
+
+    public void backupItems(String fileName) throws IOException {
+        FileWriter writer = new FileWriter(fileName);
+        for (Item item : items) {
+            writer.write(item.toString());
+            writer.write("\n");
+        }
+        writer.close();
     }
 }
