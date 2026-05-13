@@ -10,7 +10,7 @@ import static org.cynthia.util.Constants.MAX_BOOKS_STUDENT;
 @Setter
 @ToString
 public class Student extends User {
-    public Student(String id, String name) {
+    public Student(int id, String name) {
         super(id, name);
     }
 

@@ -10,7 +10,7 @@ import static org.cynthia.util.Constants.MAX_ITEMS_TEACHER;
 @Setter
 @ToString
 public class Teacher extends User {
-    public Teacher(String id, String name) {
+    public Teacher(int id, String name) {
         super(id, name);
     }
 
