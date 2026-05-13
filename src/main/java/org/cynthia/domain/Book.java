@@ -8,14 +8,19 @@ import lombok.ToString;
 @Getter
 @ToString
 public class Book extends Item {
-    private String ISBN;
+    private String isbn;
     private String author;
     private String genre;
 
-    public Book(String id, String title, Status status, String ISBN, String author, String genre) {
-        super(id, title, status);
-        this.ISBN = ISBN;
+    public Book(String id, String title, String ISBN, String author, String genre) {
+        super(id, title);
+        this.isbn = isbn;
         this.author = author;
         this.genre = genre;
+    }
+
+    @Override
+    public String getDetails() {
+        return "Book: " + title + " by " + author;
     }
 }
