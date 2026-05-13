@@ -123,4 +123,13 @@ public class Library {
         }
         writer.close();
     }
+
+    public void backupUsers(String fileName) throws IOException {
+        FileWriter writer = new FileWriter(fileName);
+        for (User user : users) {
+            writer.write(user.toString());
+            writer.write("\n");
+        }
+        writer.close();
+    }
 }
