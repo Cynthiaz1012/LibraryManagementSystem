@@ -1,10 +1,8 @@
 package org.cynthia.domain;
 
-import org.cynthia.Interfaces.Reportable;
-
 import java.util.*;
 
-public class Library implements Reportable {
+public class Library {
     private List<Item> items;
     private List<User> users;
 
@@ -24,7 +22,6 @@ public class Library implements Reportable {
 
     public void addItem(Item item) {
         items.add(item);
-        itemMap.put(item.getId(), item);
     }
 
     public void addUser(User user) {
