@@ -27,11 +27,12 @@ public abstract class User {
      */
     public abstract int getBorrowingLimit();
 
-    /**
-     * Checks if the user can borrow more items.
-     * @return True if current borrowed count < limit, else false.
-     */
-    public boolean canBorrow() {
-        return borrowedItems.size() < getBorrowingLimit();
+
+    public void borrowItem(Item item) {
+        borrowedItems.add(item);
+    }
+
+    public void returnItem(Item item) {
+        borrowedItems.remove(item);
     }
 }
