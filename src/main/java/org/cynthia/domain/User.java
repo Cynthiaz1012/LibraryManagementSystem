@@ -11,11 +11,11 @@ import java.util.List;
 @Setter
 @ToString
 public abstract class User {
-    protected String id;
+    protected int id;
     protected String name;
     protected List<Item> borrowedItems;
 
-    public User(String id, String name) {
+    public User(int id, String name) {
         this.id = id;
         this.name = name;
         this.borrowedItems = new ArrayList<>();
