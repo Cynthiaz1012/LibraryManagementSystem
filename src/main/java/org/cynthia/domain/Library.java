@@ -1,6 +1,7 @@
 package org.cynthia.domain;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Library {
     private List<Item> items;
@@ -97,5 +98,17 @@ public class Library {
             }
         }
         return recursiveSearch(keyword, index + 1, result);
+    }
+
+    public List<Item> streamSearchByTitle(String keyword) {
+        return items.stream()
+                .filter(item -> item.getTitle()
+                        .toLowerCase()
+                        .contains(keyword.toLowerCase()))
+                .collect(Collectors.toMap(
+                        Item::getTitle, item -> item, (a, b) -> a))
+                .values()
+                .stream()
+                .toList();
     }
 }
