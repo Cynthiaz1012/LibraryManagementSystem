@@ -8,26 +8,19 @@ import lombok.ToString;
 @Setter
 @ToString
 public abstract class Item {
-    private String id;
-    private String title;
-    private Status status;
+    protected String id;
+    protected String title;
+    protected ItemStatus status;
 
-    public Item(String id, String title, Status status) {
+    public Item(String id, String title) {
         this.id = id;
         this.title = title;
-        this.status = status;
+        this.status = ItemStatus.IN_STORE;
     }
+    public abstract String getDetails();
 
-    /**
-     * Checks whether item is available.
-     * @return true if available
-     */
-    public boolean isAvailable() {
-        return status == Status.AVAILABLE;
-    }
-
-    public enum Status {
-        AVAILABLE,
+    public enum ItemStatus {
+        IN_STORE,
         BORROWED,
         LOST
     }
