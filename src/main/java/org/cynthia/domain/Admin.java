@@ -1,13 +1,23 @@
 package org.cynthia.domain;
 
-public class Admin extends User {
+import org.cynthia.Interfaces.Reportable;
+
+import java.util.List;
+
+public class Admin extends User implements Reportable {
 
     public Admin(String id, String name) {
         super(id, name);
     }
+    @Override
+    public boolean canBorrow(Item item) {
+        return false;
+    }
 
     @Override
-    public int getBorrowingLimit() {
-        return 0;
+    public void generateReport(List<Item> items) {
+        for (Item item : items) {
+            System.out.println(item);
+        }
     }
 }
