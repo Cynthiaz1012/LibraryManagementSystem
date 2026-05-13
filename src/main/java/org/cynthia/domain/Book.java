@@ -1,4 +1,4 @@
-package org.cynthia;
+package org.cynthia.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,7 +7,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString
-public class Book extends Item{
+public class Book extends Item {
     private String ISBN;
     private String author;
     private String genre;

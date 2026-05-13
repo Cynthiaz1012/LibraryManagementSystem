@@ -1,4 +1,4 @@
-package org.cynthia;
+package org.cynthia.domain;
 
 import lombok.Getter;
 import lombok.Setter;

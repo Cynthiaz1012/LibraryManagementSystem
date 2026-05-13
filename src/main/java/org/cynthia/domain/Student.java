@@ -1,4 +1,4 @@
-package org.cynthia;
+package org.cynthia.domain;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class Student extends User{
+public class Student extends User {
     public Student(String id, String name, List<Item> borrowedItems) {
         super(id, name, borrowedItems);
     }
