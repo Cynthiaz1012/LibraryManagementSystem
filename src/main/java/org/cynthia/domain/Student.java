@@ -19,14 +19,14 @@ public class Student extends User {
         return 5;
     }
 
-    /**
-     * Students can only borrow books.
-     * @param item The item to check.
-     * @return True if item is a Book, false otherwise.
-     */
-    public boolean canBorrowItem(Item item) {
-        return item instanceof Book;
+    @Override
+    public void borrowItem(Item item) {
+        if (!(item instanceof Book)) {
+            throw new IllegalArgumentException("Students can only borrow books.");
+        }
+        if (borrowedItems.size() >= getBorrowingLimit()) {
+            throw new IllegalArgumentException("Student borrow limit reached.");
+        }
+        borrowedItems.add(item);
     }
-
-
 }
