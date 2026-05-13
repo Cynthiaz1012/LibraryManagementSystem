@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -17,7 +18,7 @@ public abstract class User {
     public User(String id, String name, List<Item> borrowedItems) {
         this.id = id;
         this.name = name;
-        this.borrowedItems = borrowedItems;
+        this.borrowedItems = new ArrayList<>();
     }
 
     /**
