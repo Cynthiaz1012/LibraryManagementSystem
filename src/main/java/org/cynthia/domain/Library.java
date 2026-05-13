@@ -27,4 +27,13 @@ public class Library {
     public void addUser(User user) {
         users.add(user);
     }
+
+    public User findUserById(int id) {
+        for (User user : users) {
+            if (user.getId() == id) {
+                return user;
+            }
+        }
+        return null;
+    }
 }
