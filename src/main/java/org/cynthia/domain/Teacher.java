@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
+import static org.cynthia.util.Constants.MAX_ITEMS_TEACHER;
 
 @Getter
 @Setter
@@ -15,15 +15,7 @@ public class Teacher extends User {
     }
 
     @Override
-    public int getBorrowingLimit() {
-        return 10;
-    }
-
-    @Override
-    public void borrowItem(Item item) {
-        if (borrowedItems.size() >= getBorrowingLimit()) {
-            throw new IllegalArgumentException("Teacher borrow limit reached.");
-        }
-        borrowedItems.add(item);
+    public boolean canBorrow(Item item) {
+        return borrowedItems.size() < MAX_ITEMS_TEACHER;
     }
 }
