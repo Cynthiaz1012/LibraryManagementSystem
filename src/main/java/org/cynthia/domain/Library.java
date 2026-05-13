@@ -45,4 +45,22 @@ public class Library {
         }
         return null;
     }
+
+    public void borrowItem(int userId, int itemId) {
+        User user = findUserById(userId);
+        Item item = findItemById(itemId);
+
+        if (user == null || item == null) {
+            throw new IllegalArgumentException("User or Item not found.");
+        }
+
+        if (item.getStatus() != Item.ItemStatus.IN_STORE) {
+            throw new IllegalStateException("Item unavailable.");
+        }
+
+        if (!user.canBorrow(item)) {
+            throw new IllegalStateException("Borrow limit exceeded.");
+        }
+        user.borrowItem(item);
+    }
 }
