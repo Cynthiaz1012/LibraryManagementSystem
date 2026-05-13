@@ -21,18 +21,15 @@ public abstract class User {
         this.borrowedItems = new ArrayList<>();
     }
 
-    /**
-     * Returns the maximum number of items this user can borrow.
-     * @return Maximum borrowing limit.
-     */
-    public abstract int getBorrowingLimit();
-
+    public abstract boolean canBorrow(Item item);
 
     public void borrowItem(Item item) {
         borrowedItems.add(item);
+        item.setStatus(Item.ItemStatus.BORROWED);
     }
 
     public void returnItem(Item item) {
         borrowedItems.remove(item);
+        item.setStatus(Item.ItemStatus.IN_STORE);
     }
 }
