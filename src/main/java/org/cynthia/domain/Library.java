@@ -63,4 +63,14 @@ public class Library {
         }
         user.borrowItem(item);
     }
+
+    public void returnItem(int userId, int itemId) {
+        User user = findUserById(userId);
+        Item item = findItemById(itemId);
+
+        if (user == null || item == null) {
+            throw new IllegalArgumentException("User or Item not found.");
+        }
+        user.returnItem(item);
+    }
 }
