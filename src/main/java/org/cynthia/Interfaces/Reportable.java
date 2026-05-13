@@ -1,4 +1,4 @@
-package org.cynthia;
+package org.cynthia.Interfaces;
 
 public interface Reportable {
     /**
