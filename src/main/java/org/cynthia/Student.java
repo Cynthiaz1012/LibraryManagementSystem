@@ -14,6 +14,11 @@ public class Student extends User{
         super(id, name, borrowedItems);
     }
 
+    @Override
+    public int getBorrowingLimit() {
+        return 5;
+    }
+
     /**
      * Students can only borrow books.
      * @param item The item to check.
@@ -22,4 +27,6 @@ public class Student extends User{
     public boolean canBorrowItem(Item item) {
         return item instanceof Book;
     }
+
+
 }
