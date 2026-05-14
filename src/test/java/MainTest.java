@@ -178,5 +178,34 @@ public class MainTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    @DisplayName("Recursive search finds item")
+    void testRecursiveSearch1() {
+        Library library = new Library();
+        Book book = new Book(1, "Java Basics", "1234567890123", "Tom", "Programming");
+        library.addItem(book);
+        int expected = 1;
+        int actual = library.recursiveSearchByTitle("Java").size();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Recursive search no result")
+    void testRecursiveSearch2() {
+        Library library = new Library();
+        int expected = 0;
+        int actual = library.recursiveSearchByTitle("Python").size();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Recursive search case insensitive")
+    void testRecursiveSearch3() {
+        Library library = new Library();
+        Book book = new Book(1, "JAVA", "1234567890123", "Tom", "Programming");
+        library.addItem(book);
+        int expected = 1;
+        int actual = library.recursiveSearchByTitle("java").size();
+    }
 
 }
