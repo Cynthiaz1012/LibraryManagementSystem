@@ -23,11 +23,19 @@ public abstract class User {
 
     public abstract boolean canBorrow(Item item);
 
+    /**
+     * Borrows an item for the user.
+     * @param item the item to borrow
+     */
     public void borrowItem(Item item) {
         borrowedItems.add(item);
         item.setStatus(Item.ItemStatus.BORROWED);
     }
 
+    /**
+     * Returns an item from the user.
+     * @param item the item to return
+     */
     public void returnItem(Item item) {
         borrowedItems.remove(item);
         item.setStatus(Item.ItemStatus.IN_STORE);
