@@ -1,6 +1,4 @@
-import org.cynthia.domain.Book;
-import org.cynthia.domain.DVD;
-import org.cynthia.domain.Student;
+import org.cynthia.domain.*;
 import org.cynthia.util.Validation;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -66,6 +64,36 @@ public class MainTest {
         boolean expected = false;
         boolean actual = student.canBorrow(newBook);
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Find existing user")
+    void testFindUserById1() {
+        Library library = new Library();
+        Student student = new Student(1, "Alice");
+        library.addUser(student);
+        User actual = library.findUserById(1);
+        Assertions.assertEquals(student, actual);
+    }
+
+    @Test
+    @DisplayName("Find missing user")
+    void testFindUserById2() {
+        Library library = new Library();
+        User actual = library.findUserById(99);
+        Assertions.assertNull(actual);
+    }
+
+    @Test
+    @DisplayName("Find second user")
+    void testFindUserById3() {
+        Library library = new Library();
+        Student student1 = new Student(1, "Alice");
+        Student student2 = new Student(2, "Tom");
+        library.addUser(student1);
+        library.addUser(student2);
+        User actual = library.findUserById(2);
+        Assertions.assertEquals(student2, actual);
     }
 
 }
