@@ -14,6 +14,10 @@ public class Admin extends User implements Reportable {
         return false;
     }
 
+    /**
+     * Generates a report of all items.
+     * @param items list of library items
+     */
     @Override
     public void generateReport(List<Item> items) {
         for (Item item : items) {
