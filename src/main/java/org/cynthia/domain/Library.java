@@ -1,27 +1,20 @@
 package org.cynthia.domain;
 
-import java.io.BufferedWriter;
+import lombok.Getter;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Getter
 public class Library {
     private List<Item> items;
     private List<User> users;
 
-    private Queue<User> waitingQueue;
-    private Stack<String> logs;
-    private Set<String> borrowedItemIds;
-    private Map<String, Item> itemMap;
-
     public Library() {
         items = new ArrayList<>();
         users = new ArrayList<>();
-        waitingQueue = new LinkedList<>();
-        logs = new Stack<>();
-        borrowedItemIds = new HashSet<>();
-        itemMap = new HashMap<>();
     }
 
     public void addItem(Item item) {
