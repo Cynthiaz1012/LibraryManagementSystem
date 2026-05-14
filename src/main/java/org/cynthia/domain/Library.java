@@ -156,6 +156,11 @@ public class Library {
                 .toList();
     }
 
+    /**
+     * Saves all items into a file.
+     * @param fileName the output file name
+     * @throws IOException if writing fails
+     */
     public void backupItems(String fileName) throws IOException {
         FileWriter writer = new FileWriter(fileName);
         for (Item item : items) {
@@ -165,6 +170,11 @@ public class Library {
         writer.close();
     }
 
+    /**
+     * Saves all users into a file.
+     * @param fileName the output file name
+     * @throws IOException if writing fails
+     */
     public void backupUsers(String fileName) throws IOException {
         FileWriter writer = new FileWriter(fileName);
         for (User user : users) {
