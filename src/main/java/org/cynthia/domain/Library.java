@@ -139,7 +139,11 @@ public class Library {
         return recursiveSearch(keyword, index + 1, result);
     }
 
-
+    /**
+     * Searches items using streams by title.
+     * @param keyword the title keyword
+     * @return a list of matching items
+     */
     public List<Item> streamSearchByTitle(String keyword) {
         return items.stream()
                 .filter(item -> item.getTitle()
