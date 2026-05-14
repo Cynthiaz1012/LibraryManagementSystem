@@ -21,6 +21,11 @@ public abstract class User {
         this.borrowedItems = new ArrayList<>();
     }
 
+    /**
+     * Checks if the user can borrow an item.
+     * @param item the item to borrow
+     * @return true if allowed, otherwise false
+     */
     public abstract boolean canBorrow(Item item);
 
     /**
