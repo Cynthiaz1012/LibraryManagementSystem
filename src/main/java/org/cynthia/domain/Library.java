@@ -17,9 +17,18 @@ public class Library {
         users = new ArrayList<>();
     }
 
+    /**
+     * Adds a new item to the library.
+     * @param item the item to add
+     */
     public void addItem(Item item) {
         items.add(item);
     }
+
+    /**
+     * Adds a new user to the library.
+     * @param user the user to add
+     */
 
     public void addUser(User user) {
         users.add(user);
