@@ -254,4 +254,47 @@ public class MainTest {
         file.delete();
     }
 
+    @Test
+    @DisplayName("Backup users creates file")
+    void testBackupUsers1() throws IOException {
+        Library library = new Library();
+        Student student = new Student(1, "Alice");
+        library.addUser(student);
+        String fileName = "testUsers1.csv";
+        library.backupUsers(fileName);
+        File file = new File(fileName);
+        boolean expected = true;
+        boolean actual = file.exists();
+        Assertions.assertEquals(expected, actual);
+        file.delete();
+    }
+
+    @Test
+    @DisplayName("Backup users writes content")
+    void testBackupUsers2() throws IOException {
+        Library library = new Library();
+        Student student = new Student(1, "Alice");
+        library.addUser(student);
+        String fileName = "testUsers2.csv";
+        library.backupUsers(fileName);
+        File file = new File(fileName);
+        boolean expected = true;
+        boolean actual = file.length() > 0;
+        Assertions.assertEquals(expected, actual);
+        file.delete();
+    }
+
+    @Test
+    @DisplayName("Backup empty users list")
+    void testBackupUsers3() throws IOException {
+        Library library = new Library();
+        String fileName = "testUsers3.csv";
+        library.backupUsers(fileName);
+        File file = new File(fileName);
+        boolean expected = true;
+        boolean actual = file.exists();
+        Assertions.assertEquals(expected, actual);
+        file.delete();
+    }
+
 }
