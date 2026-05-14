@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.IOException;
+
 public class MainTest {
     @Test
     @DisplayName("Valid ISBN -> true")
@@ -206,6 +209,49 @@ public class MainTest {
         library.addItem(book);
         int expected = 1;
         int actual = library.recursiveSearchByTitle("java").size();
+    }
+
+    @Test
+    @DisplayName("Backup items creates file")
+    void testBackupItems1() throws IOException {
+        Library library = new Library();
+        Book book = new Book(1, "Java", "1234567890123", "Tom", "Programming");
+        library.addItem(book);
+        String fileName = "testItems1.csv";
+        library.backupItems(fileName);
+        File file = new File(fileName);
+        boolean expected = true;
+        boolean actual = file.exists();
+        Assertions.assertEquals(expected, actual);
+        file.delete();
+    }
+
+    @Test
+    @DisplayName("Backup items writes content")
+    void testBackupItems2() throws IOException {
+        Library library = new Library();
+        Book book = new Book(1, "Java", "1234567890123", "Tom", "Programming");
+        library.addItem(book);
+        String fileName = "testItems2.csv";
+        library.backupItems(fileName);
+        File file = new File(fileName);
+        boolean expected = true;
+        boolean actual = file.length() > 0;
+        Assertions.assertEquals(expected, actual);
+        file.delete();
+    }
+
+    @Test
+    @DisplayName("Backup empty items list")
+    void testBackupItems3() throws IOException {
+        Library library = new Library();
+        String fileName = "testItems3.csv";
+        library.backupItems(fileName);
+        File file = new File(fileName);
+        boolean expected = true;
+        boolean actual = file.exists();
+        Assertions.assertEquals(expected, actual);
+        file.delete();
     }
 
 }
