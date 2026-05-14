@@ -102,10 +102,22 @@ public class Library {
         user.returnItem(item);
     }
 
+    /**
+     * Searches items recursively by title.
+     * @param keyword the title keyword
+     * @return a list of matching items
+     */
     public List<Item> recursiveSearchByTitle(String keyword) {
         return recursiveSearch(keyword.toLowerCase(), 0, new ArrayList<>());
     }
 
+    /**
+     * Recursive helper method for searching items.
+     * @param keyword the keyword to search
+     * @param index current index in the list
+     * @param result list of matching items
+     * @return list of matching items
+     */
     private List<Item> recursiveSearch(String keyword, int index, List<Item> result) {
         if (index >= items.size()) {
             return result;
@@ -126,6 +138,7 @@ public class Library {
         }
         return recursiveSearch(keyword, index + 1, result);
     }
+
 
     public List<Item> streamSearchByTitle(String keyword) {
         return items.stream()
