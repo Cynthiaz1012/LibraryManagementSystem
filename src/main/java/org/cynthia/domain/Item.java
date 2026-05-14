@@ -17,6 +17,11 @@ public abstract class Item {
         this.title = title;
         this.status = ItemStatus.IN_STORE;
     }
+
+    /**
+     * Returns item details.
+     * @return item details as a string
+     */
     public abstract String getDetails();
 
     public enum ItemStatus {
