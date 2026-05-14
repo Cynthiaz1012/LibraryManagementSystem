@@ -61,6 +61,13 @@ public class Library {
         return null;
     }
 
+    /**
+     * Allows a user to borrow an item.
+     * @param userId the user ID
+     * @param itemId the item ID
+     * @throws IllegalArgumentException if the user or item does not exist
+     * @throws IllegalStateException if the item is unavailable or the user reached the limit
+     */
     public void borrowItem(int userId, int itemId) {
         User user = findUserById(userId);
         Item item = findItemById(itemId);
@@ -79,6 +86,12 @@ public class Library {
         user.borrowItem(item);
     }
 
+    /**
+     * Allows a user to return an item.
+     * @param userId the user ID
+     * @param itemId the item ID
+     * @throws IllegalArgumentException if the user or item does not exist
+     */
     public void returnItem(int userId, int itemId) {
         User user = findUserById(userId);
         Item item = findItemById(itemId);
