@@ -29,11 +29,15 @@ public class Library {
      * Adds a new user to the library.
      * @param user the user to add
      */
-
     public void addUser(User user) {
         users.add(user);
     }
 
+    /**
+     * Finds a user by their ID.
+     * @param id the user ID
+     * @return the matching user, or null if not found
+     */
     public User findUserById(int id) {
         for (User user : users) {
             if (user.getId() == id) {
@@ -43,6 +47,11 @@ public class Library {
         return null;
     }
 
+    /**
+     * Finds an item by its ID.
+     * @param id the item ID
+     * @return the matching item, or null if not found
+     */
     public Item findItemById(int id) {
         for (Item item : items) {
             if (item.getId() == id) {
