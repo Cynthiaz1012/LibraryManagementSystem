@@ -126,4 +126,42 @@ public class MainTest {
         Assertions.assertEquals(dvd, actual);
     }
 
+    @Test
+    @DisplayName("Borrow item successfully")
+    void testBorrowItem1() {
+        Library library = new Library();
+        Student student = new Student(1, "Alice");
+        Book book = new Book(1, "Java", "1234567890123", "Tom", "Programming");
+        library.addUser(student);
+        library.addItem(book);
+        library.borrowItem(1, 1);
+        Item.ItemStatus expected = Item.ItemStatus.BORROWED;
+        Item.ItemStatus actual = book.getStatus();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Borrow unavailable item")
+    void testBorrowItem2() {
+        Library library = new Library();
+        Student student = new Student(1, "Alice");
+        Book book = new Book(1, "Java", "1234567890123", "Tom", "Programming");
+        book.setStatus(Item.ItemStatus.BORROWED);
+        library.addUser(student);
+        library.addItem(book);
+        Assertions.assertThrows(IllegalStateException.class, () -> library.borrowItem(1, 1)
+        );
+    }
+
+    @Test
+    @DisplayName("Borrow missing item")
+    void testBorrowItem3() {
+        Library library = new Library();
+        Student student = new Student(1, "Alice");
+        library.addUser(student);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> library.borrowItem(1, 99)
+        );
+    }
+
+
 }
