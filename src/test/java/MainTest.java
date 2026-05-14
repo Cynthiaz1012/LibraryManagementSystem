@@ -163,5 +163,20 @@ public class MainTest {
         );
     }
 
+    @Test
+    @DisplayName("Return item successfully")
+    void testReturnItem1() {
+        Library library = new Library();
+        Student student = new Student(1, "Alice");
+        Book book = new Book(1, "Java", "1234567890123", "Tom", "Programming");
+        library.addUser(student);
+        library.addItem(book);
+        library.borrowItem(1, 1);
+        library.returnItem(1, 1);
+        Item.ItemStatus expected = Item.ItemStatus.IN_STORE;
+        Item.ItemStatus actual = book.getStatus();
+        Assertions.assertEquals(expected, actual);
+    }
+
 
 }
