@@ -96,4 +96,34 @@ public class MainTest {
         Assertions.assertEquals(student2, actual);
     }
 
+    @Test
+    @DisplayName("Find existing item")
+    void testFindItemById1() {
+        Library library = new Library();
+        Book book = new Book(1, "Java", "1234567890123", "Tom", "Programming");
+        library.addItem(book);
+        Item actual = library.findItemById(1);
+        Assertions.assertEquals(book, actual);
+    }
+
+    @Test
+    @DisplayName("Find missing item")
+    void testFindItemById2() {
+        Library library = new Library();
+        Item actual = library.findItemById(50);
+        Assertions.assertNull(actual);
+    }
+
+    @Test
+    @DisplayName("Find second item")
+    void testFindItemById3() {
+        Library library = new Library();
+        Book book1 = new Book(1, "Java", "1234567890123", "Tom", "Programming");
+        DVD dvd = new DVD(2, "Movie", "John", 120);
+        library.addItem(book1);
+        library.addItem(dvd);
+        Item actual = library.findItemById(2);
+        Assertions.assertEquals(dvd, actual);
+    }
+
 }
