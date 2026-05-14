@@ -296,5 +296,4 @@ public class MainTest {
         Assertions.assertEquals(expected, actual);
         file.delete();
     }
-
 }
